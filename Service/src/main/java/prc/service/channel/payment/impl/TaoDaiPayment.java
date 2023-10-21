@@ -1,5 +1,6 @@
 package prc.service.channel.payment.impl;
 
+import cn.hutool.http.HttpRequest;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
@@ -219,7 +220,7 @@ public class TaoDaiPayment extends ChannelPaymentBefore {
             }
             String pastseHtml = HttpRequestUtil.sendHttpsBody("https://shenghuo.alipay.com/peerpaycore/choosePeerPayer.htm?orderId=" + payerNo + "&peerpayType=NEW_PPAY&peerPayerCardNo=" + toUserId + "&message=", header, proxy);
             String patse = RegexUtil.regexExist(pastseHtml, "https://shenghuo.alipay.com:443/peerpaycore/confirmPeerPay.htm", "\"");
-            System.out.println(patse);
+            log.info("下单-{}-{}", iuPayment.getPaymentId(), patse);
             jsonObject.put("retUrl", patse);
             jsonObject.put("code", 0);
             return jsonObject;
@@ -228,5 +229,34 @@ public class TaoDaiPayment extends ChannelPaymentBefore {
             jsonObject.put("code", -1);
             return jsonObject;
         }
+    }
+
+    @Override
+    public void monitoringSuccess(IUPayment iuPayment) {
+        super.monitoringSuccess(iuPayment);
+        SDTaoAccount sdTaoAccount = JSON.parseObject(iuPayment.getQueryJson().getString("cookie"), SDTaoAccount.class);
+        sdTaoAccountDao.getBaseMapper().successCountAdd(sdTaoAccount.getId());
+    }
+
+    @Override
+    public void monitoringError(IUPayment iuPayment) {
+        super.monitoringError(iuPayment);
+        SDTaoAccount sdTaoAccount = JSON.parseObject(iuPayment.getQueryJson().getString("cookie"), SDTaoAccount.class);
+        Map<String, String> header = new HashMap<String, String>();
+        header.put("cookie", sdTaoAccount.getTaoCookie());
+
+        ProxyDto proxyDto = QgProxyService.getRandomHttp();
+        InetSocketAddress inetSocketAddress = null;
+        Proxy proxy = null;
+        if (!Objects.isNull(proxyDto)) {
+            inetSocketAddress = new InetSocketAddress(proxyDto.getIp(), Integer.parseInt(proxyDto.getPort()));
+            proxy = new Proxy(proxyDto.getProxyType(), inetSocketAddress); // http 代理
+        }
+        String f_tokeHtml = HttpRequestUtil.sendHttpsBody("https://buyertrade.taobao.com/trade/cancel_order_buyer.htm?biz_order_id=" + iuPayment.getQueryJson().getString("taoOrder") + "&biz_type=100&cell_redirect=0", header, proxy);
+        String f2 = RegexUtil.regexExist(f_tokeHtml, "_tb_token_' type='hidden' value='", "'>").replaceAll("_tb_token_' type='hidden' value='", "");
+        log.info("取消-{}-{}", iuPayment.getPaymentId(), f2);
+
+        String bo = "_tb_token_=" + f2 + "&bizType=100&bizOrderId=" + iuPayment.getQueryJson().getString("taoOrder") + "&identity=%24rundata.getParameters%28%29.getString%28%22identity%22%29&action=cancelOrderActionBuyer.htm&event_submit_do_cancel=1&J_CloseReason=%CE%D2%B2%BB%CF%EB%C2%F2%C1%CB";
+        HttpRequestUtil.sendHttpsPostBodys("https://buyertrade.taobao.com/trade/cancel_order_buyer.htm?biz_order_id=" + iuPayment.getQueryJson().getString("taoOrder") + "&biz_type=100&cell_redirect=0", header, proxy, bo);
     }
 }
