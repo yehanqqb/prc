@@ -237,6 +237,11 @@ public class TaoDaiPayment extends ChannelPaymentBefore {
         super.monitoringSuccess(iuPayment);
         SDTaoAccount sdTaoAccount = JSON.parseObject(iuPayment.getQueryJson().getString("cookie"), SDTaoAccount.class);
         sdTaoAccountDao.getBaseMapper().successCountAdd(sdTaoAccount.getId());
+        sdTaoAccount = sdTaoAccountDao.getById(sdTaoAccount.getId());
+        if (sdTaoAccount.getSuccess() >= 10) {
+            sdTaoAccount.setStatus(false);
+            sdTaoAccountDao.saveOrUpdate(sdTaoAccount);
+        }
     }
 
     @Override
