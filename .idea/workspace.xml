@@ -11,6 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c922a84d-4257-495b-9adb-4da3b469c292" name="Default Changelist" comment="1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Service/src/main/java/prc/service/channel/payment/impl/TaoDaiPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Service/src/main/java/prc/service/channel/payment/impl/TaoDaiPayment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -254,7 +255,7 @@
       <workItem from="1696945566067" duration="4904000" />
       <workItem from="1697096595767" duration="4409000" />
       <workItem from="1697809914001" duration="13035000" />
-      <workItem from="1697878979546" duration="22678000" />
+      <workItem from="1697878979546" duration="23253000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1695144444591</created>
@@ -571,7 +572,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697910350871</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="1">
+      <created>1697910399081</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1697910399081</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,10 +686,10 @@
       <screen x="0" y="0" width="1463" height="775" />
     </state>
     <state x="514" y="84" key="VCS.ChangeListViewerDialog/0.0.1463.775@0.0.1463.775" timestamp="1696237526366" />
-    <state x="324" y="121" key="Vcs.Push.Dialog.v2" timestamp="1697910353594">
+    <state x="324" y="121" key="Vcs.Push.Dialog.v2" timestamp="1697910425997">
       <screen x="0" y="0" width="1463" height="775" />
     </state>
-    <state x="324" y="121" key="Vcs.Push.Dialog.v2/0.0.1463.775@0.0.1463.775" timestamp="1697910353594" />
+    <state x="324" y="121" key="Vcs.Push.Dialog.v2/0.0.1463.775@0.0.1463.775" timestamp="1697910425997" />
     <state width="738" height="394" key="XDebugger.FullValuePopup" timestamp="1697908873367">
       <screen x="0" y="0" width="1463" height="775" />
     </state>
