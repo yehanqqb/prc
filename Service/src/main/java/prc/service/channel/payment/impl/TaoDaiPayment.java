@@ -128,7 +128,7 @@ public class TaoDaiPayment extends ChannelPaymentBefore {
             // 转换
             String reg = HttpRequestUtil.sendHttpNoRedirectHeader("https://lab.alipay.com/consume/queryTradeDetail.htm?tradeNo=" + trade_no, header, proxy).get("Location").get(0);
             String tId = RegexUtil.regexExist(reg, "TradeNo%253D", "%2526forwardAction").replaceAll("TradeNo%253D", "TradeNo%253D").replaceAll("TradeNo%253D", "");
-
+            tId = tId.substring(5);
             JSONObject query = new JSONObject();
             sdTaoAccount.setAliCookie(jsCk.getString("cookie"));
             query.put("cookie", sdTaoAccount);
