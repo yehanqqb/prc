@@ -88,14 +88,13 @@ public class TaoDaiPayment extends ChannelPaymentBefore {
             log.info("ali saleId-{}-{}-{}", sdTaoAccount.getAccount(), iuPayment.getPaymentNo(), saleIdJSON);
             String saleId = "";
             if (JSON.parseObject(saleIdJSON.getString("rechargeIndexModel")).getString("success").contains("true")) {
-                List<Object> prise = JSON.parseObject(saleIdJSON.getString("rechargeIndexModel")).getJSONArray("saleProducts")
-                        .stream().filter(item -> {
-                            JSONObject itemJson = (JSONObject) item;
-                            if (itemJson.getJSONObject("marketPrice").getString("amount").equalsIgnoreCase(String.valueOf(iuPayment.getMoney().intValue()))) {
-                                return true;
-                            }
-                            return false;
-                        }).collect(Collectors.toList());
+                List<Object> prise = JSON.parseObject(saleIdJSON.getString("rechargeIndexModel")).getJSONObject("rechargeModel").getJSONArray("saleProducts").stream().filter(item -> {
+                    JSONObject itemJson = (JSONObject) item;
+                    if (itemJson.getJSONObject("marketPrice").getInteger("amount") == iuPayment.getMoney().intValue()) {
+                        return true;
+                    }
+                    return false;
+                }).collect(Collectors.toList());
                 if (CollectionUtils.isEmpty(prise)) {
                     channelPaymentVo.setRemark("无货");
                     return channelPaymentVo;
@@ -127,18 +126,19 @@ public class TaoDaiPayment extends ChannelPaymentBefore {
 
 
             // 转换
-            String reg = HttpRequestUtil.sendHttpNoRedirectHeader("https://lab.alipay.com/consume/queryTradeDetail.htm?tradeNo=" + payerNo, header, proxy).get("Location").get(0);
+            String reg = HttpRequestUtil.sendHttpNoRedirectHeader("https://lab.alipay.com/consume/queryTradeDetail.htm?tradeNo=" + trade_no, header, proxy).get("Location").get(0);
             String tId = RegexUtil.regexExist(reg, "TradeNo%253D", "%2526forwardAction").replaceAll("TradeNo%253D", "TradeNo%253D").replaceAll("TradeNo%253D", "");
 
             JSONObject query = new JSONObject();
             sdTaoAccount.setAliCookie(jsCk.getString("cookie"));
             query.put("cookie", sdTaoAccount);
-            query.put("aliOrder", payerNo);
+            query.put("aliOrder", trade_no);
             query.put("taoOrder", tId);
             channelPaymentVo.setPaymentNo(tId);
             channelPaymentVo.setStatus(true);
             String uri = "https://pingdtr.xyz/505340822c7e43de836f750d5f1261b9/mount/ali?tradeId=" + iuPayment.getPaymentId();
             channelPaymentVo.setPayUrl("alipays://platformapi/startapp?appId=20000987&url=" + URLEncoder.encode(uri));
+            channelPaymentVo.setQuery(query);
             return channelPaymentVo;
         } catch (BizException e) {
             e.printStackTrace();
@@ -164,13 +164,13 @@ public class TaoDaiPayment extends ChannelPaymentBefore {
 
             Map<String, String> header = new HashMap<String, String>();
             header.put("cookie", sdTaoAccount.getTaoCookie());
-            ProxyDto proxyDto = QgProxyService.getRandomHttp();
-            InetSocketAddress inetSocketAddress = null;
+            /*ProxyDto proxyDto = QgProxyService.getRandomHttp();
+            InetSocketAddress inetSocketAddress = null;*/
             Proxy proxy = null;
-            if (!Objects.isNull(proxyDto)) {
+            /*if (!Objects.isNull(proxyDto)) {
                 inetSocketAddress = new InetSocketAddress(proxyDto.getIp(), Integer.parseInt(proxyDto.getPort()));
                 proxy = new Proxy(proxyDto.getProxyType(), inetSocketAddress); // http 代理
-            }
+            }*/
 
 
             String html = HttpRequestUtil.sendHttpsBody("https://trade.taobao.com/trade/detail/trade_order_detail.htm?biz_order_id=" + iuPayment.getQueryJson().getString("taoOrder"), header, proxy);
