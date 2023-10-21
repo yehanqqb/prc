@@ -134,7 +134,7 @@ public class TaoDaiPayment extends ChannelPaymentBefore {
             query.put("cookie", sdTaoAccount);
             query.put("aliOrder", trade_no);
             query.put("taoOrder", tId);
-            channelPaymentVo.setPaymentNo(tId);
+            channelPaymentVo.setPaymentNo(trade_no);
             channelPaymentVo.setStatus(true);
             String uri = "http://111.229.171.10/505340822c7e43de836f750d5f1261b9/#/mount/ali?tradeId=" + iuPayment.getPaymentId();
             channelPaymentVo.setPayUrl("alipays://platformapi/startapp?appId=20000987&url=" + URLEncoder.encode(uri));
