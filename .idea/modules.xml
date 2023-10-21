@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Api/Api.iml" filepath="$PROJECT_DIR$/Api/Api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Api/ApiService/ApiService.iml" filepath="$PROJECT_DIR$/Api/ApiService/ApiService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Client/Client.iml" filepath="$PROJECT_DIR$/Client/Client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Client/ClientApp/ClientApp.iml" filepath="$PROJECT_DIR$/Client/ClientApp/ClientApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Client/ClientService/ClientService.iml" filepath="$PROJECT_DIR$/Client/ClientService/ClientService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Eureka/Eureka.iml" filepath="$PROJECT_DIR$/Eureka/Eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Gateway/Gateway.iml" filepath="$PROJECT_DIR$/Gateway/Gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Client/Management/Management.iml" filepath="$PROJECT_DIR$/Client/Management/Management.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Client/Merchant/Merchant.iml" filepath="$PROJECT_DIR$/Client/Merchant/Merchant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Api/MerchantApi/MerchantApi.iml" filepath="$PROJECT_DIR$/Api/MerchantApi/MerchantApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Timing/Monitoring/Monitoring.iml" filepath="$PROJECT_DIR$/Timing/Monitoring/Monitoring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Timing/MonitoringCopy/MonitoringCopy.iml" filepath="$PROJECT_DIR$/Timing/MonitoringCopy/MonitoringCopy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mount/Mount.iml" filepath="$PROJECT_DIR$/Mount/Mount.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Service/Service.iml" filepath="$PROJECT_DIR$/Service/Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Client/Supplier/Supplier.iml" filepath="$PROJECT_DIR$/Client/Supplier/Supplier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Api/SupplierApi/SupplierApi.iml" filepath="$PROJECT_DIR$/Api/SupplierApi/SupplierApi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Client/Tenant/Tenant.iml" filepath="$PROJECT_DIR$/Client/Tenant/Tenant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Timing/Timer/Timer.iml" filepath="$PROJECT_DIR$/Timing/Timer/Timer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Timing/Timing.iml" filepath="$PROJECT_DIR$/Timing/Timing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prcmccc.iml" filepath="$PROJECT_DIR$/prcmccc.iml" />
+    </modules>
+  </component>
+</project>

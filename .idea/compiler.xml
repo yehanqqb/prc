@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ClientApp" />
+        <module name="Management" />
+        <module name="ApiService" />
+        <module name="Monitoring" />
+        <module name="SupplierApi" />
+        <module name="Supplier" />
+        <module name="Eureka" />
+        <module name="Merchant" />
+        <module name="Service" />
+        <module name="MonitoringCopy" />
+        <module name="ClientService" />
+        <module name="Gateway" />
+        <module name="Mount" />
+        <module name="Timer" />
+        <module name="Tenant" />
+        <module name="MerchantApi" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Api" target="1.8" />
+      <module name="ApiService" target="1.8" />
+      <module name="Client" target="1.8" />
+      <module name="ClientApp" target="1.8" />
+      <module name="ClientService" target="1.8" />
+      <module name="Eureka" target="1.8" />
+      <module name="Gateway" target="1.8" />
+      <module name="Management" target="1.8" />
+      <module name="Merchant" target="1.8" />
+      <module name="MerchantApi" target="1.8" />
+      <module name="Monitoring" target="1.8" />
+      <module name="MonitoringCopy" target="1.8" />
+      <module name="Mount" target="1.8" />
+      <module name="prcmccc" target="1.8" />
+      <module name="Service" target="1.8" />
+      <module name="Supplier" target="1.8" />
+      <module name="SupplierApi" target="1.8" />
+      <module name="Tenant" target="1.8" />
+      <module name="Timer" target="1.8" />
+      <module name="Timing" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApiService" options="-parameters" />
+      <module name="ClientApp" options="-parameters" />
+      <module name="ClientService" options="-parameters" />
+      <module name="Eureka" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
+      <module name="Management" options="-parameters" />
+      <module name="Merchant" options="-parameters" />
+      <module name="MerchantApi" options="-parameters" />
+      <module name="Monitoring" options="-parameters" />
+      <module name="MonitoringCopy" options="-parameters" />
+      <module name="Mount" options="-parameters" />
+      <module name="Service" options="-parameters" />
+      <module name="Supplier" options="-parameters" />
+      <module name="SupplierApi" options="-parameters" />
+      <module name="Tenant" options="-parameters" />
+      <module name="Timer" options="-parameters" />
+    </option>
+  </component>
+</project>

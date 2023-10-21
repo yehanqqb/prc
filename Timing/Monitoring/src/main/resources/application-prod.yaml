@@ -1,0 +1,88 @@
+server:
+  port: 8113
+  tomcat:
+    max-threads: 200000
+    accept-count: 200000
+spring:
+  application:
+    name: timing
+  redis:
+    host: 106.15.190.78
+    port: 6379
+    password: 875814854
+    database: 2
+  rabbitmq:
+    host: 106.15.190.78
+    port: 5672
+    username: ccloud
+    password: ccloud
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+  aop:
+    proxy-target-class: true
+    auto: true
+  datasource:
+    druid:
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      username: ccloud
+      url: jdbc:log4jdbc:mysql://rm-6nn7v8au77b5t1c8gao.mysql.rds.aliyuncs.com:3306/df?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+      password: '@@HH875814854'
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      webStatFilter:
+        enabled: true
+      stat-view-servlet:
+        enabled: true
+        # 设置白名单，不填则允许所有访问
+        allow:
+        url-pattern: /druid/*
+        #login-username: admin
+        #login-password: admin
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://47.103.18.1:8109/eureka/
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+
+# token配置
+token:
+  # 令牌自定义标识
+  header: authorization
+  # 令牌密钥
+  secret: abcdefghijklmnopqrstuvwxyz
+  # 令牌有效期（默认30分钟）
+  expireTime: 30
+host: localhost:8111
+swagger: true
+mount:
+  version: 2
+version: 0
