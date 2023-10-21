@@ -5,6 +5,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import prc.api.service.dto.PayMerchantDto;
+import prc.api.service.service.ApiAliService;
 import prc.api.service.service.ApiMerchantOrderService;
 import prc.service.common.result.RetResponse;
 import prc.service.common.result.RetResult;
@@ -17,6 +18,10 @@ import javax.validation.Valid;
 public class ApiMerchantController {
     @Autowired
     private ApiMerchantOrderService apiMerchantOrderService;
+
+
+    @Autowired
+    private ApiAliService apiAliService;
 
     @PostMapping("/trade/order")
     public RetResult order(@Valid @RequestBody PayMerchantDto payMerchantDto) {
@@ -52,5 +57,16 @@ public class ApiMerchantController {
     @GetMapping("/pay/type/{tenantId}")
     public RetResult notify(@PathVariable("tenantId") Integer tenantId) {
         return RetResponse.makeOKRsp(apiMerchantOrderService.queryPayTypeByTenantId(tenantId));
+    }
+
+
+    @PostMapping("/code/check")
+    public RetResult codeCheck(String slider, String xd5) {
+        return RetResponse.makeOKRsp(apiAliService.checkCode(slider, xd5));
+    }
+
+    @GetMapping("/code/init")
+    public RetResult codeInit() {
+        return RetResponse.makeOKRsp(apiAliService.initCode());
     }
 }
