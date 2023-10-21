@@ -88,9 +88,9 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
       <command value="mvn package" />
       <command value="mvn clean kotlin:compile package " />
+      <command value="mvn clean" />
     </option>
   </component>
   <component name="RunManager" selected="JUnit.DyppMobilePaymentTest.testMonitoringChannel">
@@ -251,7 +251,7 @@
       <workItem from="1696772569551" duration="43000" />
       <workItem from="1696945566067" duration="4904000" />
       <workItem from="1697096595767" duration="4409000" />
-      <workItem from="1697809914001" duration="12463000" />
+      <workItem from="1697809914001" duration="13035000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1695144444591</created>
@@ -570,22 +570,22 @@
       <screen x="0" y="0" width="1463" height="775" />
     </state>
     <state x="512" y="142" key="FileChooserDialogImpl/0.0.1463.775@0.0.1463.775" timestamp="1697810606140" />
-    <state width="710" height="442" key="GridCell.Tab.0.bottom" timestamp="1696951165871">
+    <state width="1420" height="98" key="GridCell.Tab.0.bottom" timestamp="1697878959856">
       <screen x="0" y="0" width="1463" height="775" />
     </state>
-    <state width="710" height="442" key="GridCell.Tab.0.bottom/0.0.1463.775@0.0.1463.775" timestamp="1696951165871" />
-    <state width="710" height="442" key="GridCell.Tab.0.center" timestamp="1696951165871">
+    <state width="1420" height="98" key="GridCell.Tab.0.bottom/0.0.1463.775@0.0.1463.775" timestamp="1697878959856" />
+    <state width="1420" height="98" key="GridCell.Tab.0.center" timestamp="1697878959856">
       <screen x="0" y="0" width="1463" height="775" />
     </state>
-    <state width="710" height="442" key="GridCell.Tab.0.center/0.0.1463.775@0.0.1463.775" timestamp="1696951165871" />
-    <state width="710" height="442" key="GridCell.Tab.0.left" timestamp="1696951165871">
+    <state width="1420" height="98" key="GridCell.Tab.0.center/0.0.1463.775@0.0.1463.775" timestamp="1697878959856" />
+    <state width="1420" height="98" key="GridCell.Tab.0.left" timestamp="1697878959856">
       <screen x="0" y="0" width="1463" height="775" />
     </state>
-    <state width="710" height="442" key="GridCell.Tab.0.left/0.0.1463.775@0.0.1463.775" timestamp="1696951165871" />
-    <state width="710" height="442" key="GridCell.Tab.0.right" timestamp="1696951165871">
+    <state width="1420" height="98" key="GridCell.Tab.0.left/0.0.1463.775@0.0.1463.775" timestamp="1697878959856" />
+    <state width="1420" height="98" key="GridCell.Tab.0.right" timestamp="1697878959856">
       <screen x="0" y="0" width="1463" height="775" />
     </state>
-    <state width="710" height="442" key="GridCell.Tab.0.right/0.0.1463.775@0.0.1463.775" timestamp="1696951165871" />
+    <state width="1420" height="98" key="GridCell.Tab.0.right/0.0.1463.775@0.0.1463.775" timestamp="1697878959856" />
     <state width="710" height="442" key="GridCell.Tab.1.bottom" timestamp="1696951165871">
       <screen x="0" y="0" width="1463" height="775" />
     </state>
@@ -654,10 +654,10 @@
       <screen x="0" y="0" width="1463" height="775" />
     </state>
     <state x="461" y="175" key="git4idea.merge.GitPullDialog/0.0.1463.775@0.0.1463.775" timestamp="1696945848064" />
-    <state x="389" y="175" width="672" height="677" key="run.anything.popup" timestamp="1696232020017">
+    <state x="389" y="175" width="672" height="677" key="run.anything.popup" timestamp="1697878388191">
       <screen x="0" y="0" width="1463" height="775" />
     </state>
-    <state x="389" y="175" width="672" height="677" key="run.anything.popup/0.0.1463.775@0.0.1463.775" timestamp="1696232020017" />
+    <state x="389" y="175" width="672" height="677" key="run.anything.popup/0.0.1463.775@0.0.1463.775" timestamp="1697878388191" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
