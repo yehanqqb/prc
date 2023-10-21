@@ -25,7 +25,7 @@ public class ISAisleDao extends ServiceImpl<ISAisleMapper, ISAisle> {
             redisCache.setCacheObject(String.format(Constants.AISLE, aisleId), aisleInfo,2, TimeUnit.MINUTES);
         }
         if (Objects.isNull(aisleInfo) || aisleInfo.getStatus().equals(Boolean.FALSE)) {
-            throw new BizException("you not aisle");
+            return null;
         }
         return aisleInfo;
     }
